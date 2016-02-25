@@ -40,24 +40,24 @@
 
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var amount = mc.getProperty('uri.var.amount');
-				var applicationFee = mc.getProperty('uri.var.applicationFee');
-				var receiptEmail = mc.getProperty('uri.var.receiptEmail');
+                //request body param variables
+                var amount = mc.getProperty('uri.var.amount');
+                var applicationFee = mc.getProperty('uri.var.applicationFee');
+                var receiptEmail = mc.getProperty('uri.var.receiptEmail');
                 //Get the existing payload
-				var payload = mc.getPayloadJSON();
-				if (amount != null && amount != "") {
-					payload["amount"]=amount;
-				}
-				if (applicationFee != null && applicationFee != "") {
+                var payload = mc.getPayloadJSON();
+                if (amount != null && amount != "") {
+                    payload["amount"]=amount;
+                }
+                if (applicationFee != null && applicationFee != "") {
                     payload["application_fee"]=applicationFee;
                 }
                 if (receiptEmail != null && receiptEmail != "") {
                     payload["receipt_email"]=receiptEmail;
                 }
-				//Set the newly constructed payload
-				mc.setPayloadJSON(payload);
-			]]>
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
 
