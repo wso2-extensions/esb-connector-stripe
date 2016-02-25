@@ -101,46 +101,46 @@
 
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var card = mc.getProperty('uri.var.card');
-				var customer = mc.getProperty('uri.var.customer');
-				var cardNumber = mc.getProperty('uri.var.cardNumber');
-				var expMonth = mc.getProperty('uri.var.expMonth');
-				var expYear = mc.getProperty('uri.var.expYear');
-				var cvc = mc.getProperty('uri.var.cvc');
-				var name = mc.getProperty('uri.var.name');
-				var addressLine1 = mc.getProperty('uri.var.addressLine1');
-				var addressLine2 = mc.getProperty('uri.var.addressLine2');
-				var city = mc.getProperty('uri.var.city');
-				var zip = mc.getProperty('uri.var.zip');
-			   var state = mc.getProperty('uri.var.state');
-				var country = mc.getProperty('uri.var.country');
-				var description = mc.getProperty('uri.var.description');
-				var receiptEmail = mc.getProperty('uri.var.receiptEmail');
-				var capture = mc.getProperty('uri.var.capture');
-				var statementDescriptor = mc.getProperty('uri.var.statementDescriptor');
-				var applicationFee = mc.getProperty('uri.var.applicationFee');
-            var metadata= mc.getProperty('uri.var.metadata');
-            var shippingName = mc.getProperty('uri.var.shippingName');
-				var shippingPhone = mc.getProperty('uri.var.shippingPhone');
-				var shippingAddressLine1 = mc.getProperty('uri.var.shippingAddressLine1');
-				var shippingAddressLine2 = mc.getProperty('uri.var.shippingAddressLine2');
-				var shippingAddressCity = mc.getProperty('uri.var.shippingAddressCity');
-				var shippingAddressState = mc.getProperty('uri.var.shippingAddressState');
-				var shippingAddressPostalCode = mc.getProperty('uri.var.shippingAddressPostalCode');
-				var shippingAddressCountry = mc.getProperty('uri.var.shippingAddressCountry');
-				var trackingNumber = mc.getProperty('uri.var.trackingNumber');
-				var carrier = mc.getProperty('uri.var.carrier');
-            //Get the existing payload
-				var payload = mc.getPayloadJSON();
-				if (customer != null && customer != "") {
-					payload["customer"]=customer;
-				}
-				else{
-					if (card != null && card != "") {
-						payload["card"]=card;
-					}
-					else{
+                //request body param variables
+                var card = mc.getProperty('uri.var.card');
+                var customer = mc.getProperty('uri.var.customer');
+                var cardNumber = mc.getProperty('uri.var.cardNumber');
+                var expMonth = mc.getProperty('uri.var.expMonth');
+                var expYear = mc.getProperty('uri.var.expYear');
+                var cvc = mc.getProperty('uri.var.cvc');
+                var name = mc.getProperty('uri.var.name');
+                var addressLine1 = mc.getProperty('uri.var.addressLine1');
+                var addressLine2 = mc.getProperty('uri.var.addressLine2');
+                var city = mc.getProperty('uri.var.city');
+                var zip = mc.getProperty('uri.var.zip');
+                var state = mc.getProperty('uri.var.state');
+                var country = mc.getProperty('uri.var.country');
+                var description = mc.getProperty('uri.var.description');
+                var receiptEmail = mc.getProperty('uri.var.receiptEmail');
+                var capture = mc.getProperty('uri.var.capture');
+                var statementDescriptor = mc.getProperty('uri.var.statementDescriptor');
+                var applicationFee = mc.getProperty('uri.var.applicationFee');
+                var metadata= mc.getProperty('uri.var.metadata');
+                var shippingName = mc.getProperty('uri.var.shippingName');
+                var shippingPhone = mc.getProperty('uri.var.shippingPhone');
+                var shippingAddressLine1 = mc.getProperty('uri.var.shippingAddressLine1');
+                var shippingAddressLine2 = mc.getProperty('uri.var.shippingAddressLine2');
+                var shippingAddressCity = mc.getProperty('uri.var.shippingAddressCity');
+                var shippingAddressState = mc.getProperty('uri.var.shippingAddressState');
+                var shippingAddressPostalCode = mc.getProperty('uri.var.shippingAddressPostalCode');
+                var shippingAddressCountry = mc.getProperty('uri.var.shippingAddressCountry');
+                var trackingNumber = mc.getProperty('uri.var.trackingNumber');
+                var carrier = mc.getProperty('uri.var.carrier');
+               //Get the existing payload
+                var payload = mc.getPayloadJSON();
+                if (customer != null && customer != "") {
+                    payload["customer"]=customer;
+                }
+                else{
+                    if (card != null && card != "") {
+                        payload["card"]=card;
+                    }
+                    else{
                   if (cardNumber != null && cardNumber != "") {
                       payload["card[number]"]=cardNumber;
                   }
@@ -175,7 +175,7 @@
                       payload["card[address_country]"] = country;
                   }
                }
-				}
+                }
             if (description != null && description != "") {
                payload["description"] = description;
             }
@@ -230,9 +230,9 @@
                   payload["metadata["+key+"]"]=obj.metadataList[key];
                }
             }
-				//Set the newly constructed payload
-				mc.setPayloadJSON(payload);
-			]]>
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
 
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
