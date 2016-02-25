@@ -63,21 +63,21 @@
 
         <script language="js">
             <![CDATA[
-			//request body param variables
-			var description = mc.getProperty('uri.var.description');
+            //request body param variables
+            var description = mc.getProperty('uri.var.description');
          var metadata= mc.getProperty('uri.var.metadata');
          var fraudDetails= mc.getProperty('uri.var.fraudDetails');
          var receiptEmail= mc.getProperty('uri.var.receiptEmail');
          var shippingName = mc.getProperty('uri.var.shippingName');
-			var shippingPhone = mc.getProperty('uri.var.shippingPhone');
-			var shippingAddressLine1 = mc.getProperty('uri.var.shippingAddressLine1');
-			var shippingAddressLine2 = mc.getProperty('uri.var.shippingAddressLine2');
-			var shippingAddressCity = mc.getProperty('uri.var.shippingAddressCity');
-			var shippingAddressState = mc.getProperty('uri.var.shippingAddressState');
-			var shippingAddressPostalCode = mc.getProperty('uri.var.shippingAddressPostalCode');
-			var shippingAddressCountry = mc.getProperty('uri.var.shippingAddressCountry');
+            var shippingPhone = mc.getProperty('uri.var.shippingPhone');
+            var shippingAddressLine1 = mc.getProperty('uri.var.shippingAddressLine1');
+            var shippingAddressLine2 = mc.getProperty('uri.var.shippingAddressLine2');
+            var shippingAddressCity = mc.getProperty('uri.var.shippingAddressCity');
+            var shippingAddressState = mc.getProperty('uri.var.shippingAddressState');
+            var shippingAddressPostalCode = mc.getProperty('uri.var.shippingAddressPostalCode');
+            var shippingAddressCountry = mc.getProperty('uri.var.shippingAddressCountry');
          var trackingNumber = mc.getProperty('uri.var.trackingNumber');
-			var carrier = mc.getProperty('uri.var.carrier');
+            var carrier = mc.getProperty('uri.var.carrier');
 
          var payload = mc.getPayloadJSON();
 
@@ -135,7 +135,7 @@
          }
          //Set the newly constructed payload
          mc.setPayloadJSON(payload);
-			]]>
+            ]]>
         </script>
 
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>

@@ -36,7 +36,7 @@
 
         <script language="js"><![CDATA[
          //request body param variables
-        	var description=mc.getProperty('uri.var.description');
+            var description=mc.getProperty('uri.var.description');
          var metadata=mc.getProperty('uri.var.metadata');
 
          //Get the existing payload

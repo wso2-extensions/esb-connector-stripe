@@ -85,7 +85,7 @@
             //request body param variables
             var taxId=mc.getProperty('uri.var.taxId');
             var description = mc.getProperty('uri.var.description');
-		    var email = mc.getProperty('uri.var.email');
+            var email = mc.getProperty('uri.var.email');
             var metadata=mc.getProperty('uri.var.metadata');
             var card=mc.getProperty('uri.var.card');
             var cardNumber=mc.getProperty('uri.var.cardNumber');
@@ -124,7 +124,7 @@
                 }
             }
             if (card != null && card != "") {
-	   		     payload["card"]=card;
+                 payload["card"]=card;
             }
             else{
                  if (cardNumber != null && cardNumber != "") {

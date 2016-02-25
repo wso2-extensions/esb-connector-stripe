@@ -70,31 +70,31 @@
 
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var card = mc.getProperty('uri.var.card');
-				var cardNumber = mc.getProperty('uri.var.cardNumber');
-				var expMonth = mc.getProperty('uri.var.expMonth');
-				var expYear = mc.getProperty('uri.var.expYear');
-				var cvc = mc.getProperty('uri.var.cvc');
-				var name = mc.getProperty('uri.var.name');
-				var addressLine1 = mc.getProperty('uri.var.addressLine1');
-				var addressLine2 = mc.getProperty('uri.var.addressLine2');
-				var city = mc.getProperty('uri.var.city');
-				var zip = mc.getProperty('uri.var.zip');
-			    var state = mc.getProperty('uri.var.state');
-				var country = mc.getProperty('uri.var.country');
-				var accountBalance = mc.getProperty('uri.var.accountBalance');
-				var coupon = mc.getProperty('uri.var.coupon');
-				var description = mc.getProperty('uri.var.description');
-				var email = mc.getProperty('uri.var.email');
-				var defaultCard = mc.getProperty('uri.var.defaultCard');
+                //request body param variables
+                var card = mc.getProperty('uri.var.card');
+                var cardNumber = mc.getProperty('uri.var.cardNumber');
+                var expMonth = mc.getProperty('uri.var.expMonth');
+                var expYear = mc.getProperty('uri.var.expYear');
+                var cvc = mc.getProperty('uri.var.cvc');
+                var name = mc.getProperty('uri.var.name');
+                var addressLine1 = mc.getProperty('uri.var.addressLine1');
+                var addressLine2 = mc.getProperty('uri.var.addressLine2');
+                var city = mc.getProperty('uri.var.city');
+                var zip = mc.getProperty('uri.var.zip');
+                var state = mc.getProperty('uri.var.state');
+                var country = mc.getProperty('uri.var.country');
+                var accountBalance = mc.getProperty('uri.var.accountBalance');
+                var coupon = mc.getProperty('uri.var.coupon');
+                var description = mc.getProperty('uri.var.description');
+                var email = mc.getProperty('uri.var.email');
+                var defaultCard = mc.getProperty('uri.var.defaultCard');
                 var metadata= mc.getProperty('uri.var.metadata');
                 //Get the existing payload
-				var payload = mc.getPayloadJSON();
-				if (card != null && card != "") {
-					payload["card"]=card;
-				}
-				else{
+                var payload = mc.getPayloadJSON();
+                if (card != null && card != "") {
+                    payload["card"]=card;
+                }
+                else{
                if (cardNumber != null && cardNumber != "") {
                   payload["card[number]"]=cardNumber;
                }
@@ -151,10 +151,10 @@
                for(var key in obj.metadataList){
                   payload["metadata["+key+"]"]=obj.metadataList[key];
                }
- 	         }
-				//Set the newly constructed payload
-				mc.setPayloadJSON(payload);
-			]]>
+             }
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
         <property name="FORCE_POST_PUT_NOBODY" value="true" scope="axis2" type="BOOLEAN"/>
