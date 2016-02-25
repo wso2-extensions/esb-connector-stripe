@@ -48,16 +48,16 @@
 
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var scope = mc.getProperty('uri.var.scope');
+                //request body param variables
+                var scope = mc.getProperty('uri.var.scope');
                 //Get the existing payload
-				var payload = mc.getPayloadJSON();
-				if (scope != null && scope != "") {
-					payload["scope"]=scope;
-				}
-				//Set the newly constructed payload
-				mc.setPayloadJSON(payload);
-			]]>
+                var payload = mc.getPayloadJSON();
+                if (scope != null && scope != "") {
+                    payload["scope"]=scope;
+                }
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
 
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
