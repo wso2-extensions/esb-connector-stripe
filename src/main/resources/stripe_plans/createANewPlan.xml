@@ -61,13 +61,13 @@
 
         <script language="js">
             <![CDATA[
-				//request body param variables
-				var intervalCount = mc.getProperty('uri.var.intervalCount');
-				var trialPeriodDays = mc.getProperty('uri.var.trialPeriodDays');
-				var statementDescriptor = mc.getProperty('uri.var.statementDescriptor');
+                //request body param variables
+                var intervalCount = mc.getProperty('uri.var.intervalCount');
+                var trialPeriodDays = mc.getProperty('uri.var.trialPeriodDays');
+                var statementDescriptor = mc.getProperty('uri.var.statementDescriptor');
             var metadata= mc.getProperty('uri.var.metadata');
             //Get the existing payload
-				var payload = mc.getPayloadJSON();
+                var payload = mc.getPayloadJSON();
             if (intervalCount != null && intervalCount != "") {
                 payload["interval_count"] = intervalCount;
             }
@@ -84,10 +84,10 @@
                for(var key in obj.metadataList){
                   payload["metadata["+key+"]"]=obj.metadataList[key];
                }
-		      }
-				//Set the newly constructed payload
-				mc.setPayloadJSON(payload);
-			]]>
+              }
+                //Set the newly constructed payload
+                mc.setPayloadJSON(payload);
+            ]]>
         </script>
         <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
         <property name="FORCE_POST_PUT_NOBODY" value="true" scope="axis2" type="BOOLEAN"/>
