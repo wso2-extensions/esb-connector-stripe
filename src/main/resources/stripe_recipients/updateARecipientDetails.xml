@@ -82,7 +82,7 @@
          var taxId=mc.getProperty('uri.var.taxId');
          var description = mc.getProperty('uri.var.description');
          var defaultCard = mc.getProperty('uri.var.defaultCard');
-		   var email = mc.getProperty('uri.var.email');
+         var email = mc.getProperty('uri.var.email');
          var metadata=mc.getProperty('uri.var.metadata');
          var card=mc.getProperty('uri.var.card');
          var cardNumber=mc.getProperty('uri.var.cardNumber');
