@@ -48,7 +48,7 @@ public class StripeConnectorIntegrationTest extends ESBIntegrationTest {
 
     private String repoLocation = null;
 
-    private String stripeConnectorFileName = "stripe-connector-1.0.0.zip";
+    private String stripeConnectorFileName = "stripe-connector-1.0.1-SNAPSHOT.zip";
 
     private Properties stripeConnectorProperties = null;
 
