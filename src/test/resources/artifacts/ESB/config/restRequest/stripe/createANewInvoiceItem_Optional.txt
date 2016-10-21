@@ -1,8 +1,0 @@
-{
-"apiKey":"%s",
-"customer":"cus_5IjAmtjbgZdj5b",
-"amount":"100",
-"currency":"usd",
-"description":"for testing",
-"metadata": {"checked":"true","refunded":"partial"}
-}

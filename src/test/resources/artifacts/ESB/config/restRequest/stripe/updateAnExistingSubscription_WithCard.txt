@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"customerId":"cus_5IjAmtjbgZdj5b",
-"subscriptionId":"sub_5M5kP2cjDqjvwe",
-"card":"tok_15GYYPDpl35Wu2uiDh0zyCsc"
-}

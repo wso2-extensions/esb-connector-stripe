@@ -1,8 +1,0 @@
-{
-"apiKey":"%s",
-"percentOff":"25",
-"duration":"repeating",
-"durationInMonths":"3",
-"couponId":"25OAX",
-"metadata": {"checked":"true","refunded":"partial"}
-}

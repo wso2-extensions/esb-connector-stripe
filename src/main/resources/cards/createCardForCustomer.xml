@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template name="createCardForCustomer" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="customerId" description="The identifier of the customer or bank account to create it on"/>
+    <parameter name="tokenId" description="The identifier of the customer or bank account to create it on"/>
+    <parameter name="object" description="objects of the card"/>
+    <parameter name="expMonth" description="Card's expiration month"/>
+    <parameter name="expYear" description="Card's expiration year"/>
+    <parameter name="cvc" description="Card security code"/>
+    <parameter name="name" description="Cardholder's full name"/>
+    <parameter name="number" description="Address line 1"/>
+
+    <sequence>
+        <property name="uri.var.customerId" expression="$func:customerId"/>
+        <property name="uri.var.tokenId" expression="$func:tokenId"/>
+        <property name="uri.var.object" expression="$func:object"/>
+        <property name="uri.var.expMonth" expression="$func:expMonth"/>
+        <property name="uri.var.expYear" expression="$func:expYear"/>
+        <property name="uri.var.cvc" expression="$func:cvc"/>
+        <property name="uri.var.name" expression="$func:name"/>
+        <property name="uri.var.number" expression="$func:number"/>
+        <payloadFactory media-type="json">
+            <format>
+                {
+                }
+            </format>
+        </payloadFactory>
+        <script language="js">
+        <![CDATA[
+        var name = mc.getProperty('uri.var.name');
+        var object = mc.getProperty('uri.var.object');
+        var expMonth = mc.getProperty('uri.var.expMonth');
+        var expYear = mc.getProperty('uri.var.expYear');
+        var cvc = mc.getProperty('uri.var.cvc');
+        var number = mc.getProperty('uri.var.number');
+
+        var payload = {};
+
+         if (name != null && name != "") {
+           payload["name"]=name;
+         }
+         if (object != null && object != "") {
+           payload["object"]=object;
+         }
+         if (expMonth != null && expMonth != "") {
+           payload["expMonth"]=expMonth;
+         }
+         if (expYear != null && expYear != "") {
+           payload["expYear"]=expYear;
+         }
+         if (cvc != null && cvc != "") {
+           payload["cvc"]=cvc;
+         }
+         if (number != null && number != "") {
+           payload["number"]=number;
+         }
+          mc.setPayloadJSON(payload);
+        ]]>
+        </script>
+
+        <property name="messageType" value="application/x-www-form-urlencoded" scope="axis2"/>
+        <property name="FORCE_POST_PUT_NOBODY" value="true" scope="axis2" type="BOOLEAN"/>
+        <filter source="$ctx:STRIPE_BLOCKING" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="post"
+                              uri-template="https://api.stripe.com/v1/customers/{uri.var.customerId}/sources?source={uri.var.tokenId}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="post"
+                              uri-template="https://api.stripe.com/v1/customers/{uri.var.customerId}/sources?source={uri.var.tokenId}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"recipientName":"San siva",
-"type":"corporation",
-"card":"tok_15AEvWDpl35Wu2uik6wIphBe"
-}

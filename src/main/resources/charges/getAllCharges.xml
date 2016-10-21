@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template name="getAllCharges" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- Optional parameters -->
+    <parameter name="customerId" description="Only return charges for the customer specified by this customer ID."/>
+    <parameter name="endingBefore" description="A cursor for use in pagination"/>
+    <parameter name="limit" description="A limit on the number of objects to be returned"/>
+    <parameter name="source" description="A limit on the number of objects to be returned"/>
+    <parameter name="startingAfter" description="A cursor for use in pagination"/>
+    <parameter name="createdGT" description="Return values where the created field is after this timestamp."/>
+    <parameter name="createdGTE"
+               description="Return values where the created field is after or equal to this timestamp."/>
+    <parameter name="createdLT" description="Return values where the created field is before this timestamp."/>
+    <parameter name="createdLTE"
+               description="Return values where the created field is before or equal to this timestamp."/>
+    <sequence>
+        <property name="uri.var.customerId" expression="$func:customerId"/>
+        <property name="uri.var.endingBefore" expression="$func:endingBefore"/>
+        <property name="uri.var.limit" expression="$func:limit"/>
+        <property name="uri.var.source" expression="$func:source"/>
+        <property name="uri.var.startingAfter" expression="$func:startingAfter"/>
+        <property name="uri.var.createdGT" expression="$func:createdGT"/>
+        <property name="uri.var.createdGTE" expression="$func:createdGTE"/>
+        <property name="uri.var.createdLT" expression="$func:createdLT"/>
+        <property name="uri.var.createdLTE" expression="$func:createdLTE"/>
+
+        <script language="js"><![CDATA[
+
+         var urlQuery = '';
+         //request url param variables
+         var customerId = mc.getProperty('uri.var.customerId');
+         var limit=mc.getProperty('uri.var.limit');
+         var startingAfter=mc.getProperty('uri.var.startingAfter');
+         var endingBefore=mc.getProperty('uri.var.endingBefore');
+         var source=mc.getProperty('uri.var.source');
+         var createdGT=mc.getProperty('uri.var.createdGT');
+         var createdGTE=mc.getProperty('uri.var.createdGTE');
+         var createdLT=mc.getProperty('uri.var.createdLT');
+         var createdLTE=mc.getProperty('uri.var.createdLTE');
+
+         //Get the existing url
+
+         if (customerId != null && customerId != "") {
+            urlQuery +='customer='+customerId +'&';
+         }
+         if (limit != null && limit != "") {
+            urlQuery +='limit='+ limit +'&';
+         }
+         if (startingAfter != null && startingAfter != "") {
+            urlQuery +='starting_after='+ startingAfter+'&';
+         }
+         if (endingBefore != null && endingBefore != "") {
+            urlQuery +='ending_before='+ endingBefore+'&';
+         }
+         if (source != null && source != "") {
+            urlQuery +='source='+source+'&';
+         }
+         if (createdGT != null && createdGT != "") {
+            urlQuery +='created[gt]='+ createdGT+'&';
+         }
+         if (createdGTE != null && createdGTE != "") {
+            urlQuery +='created[gte]='+ createdGTE+'&';
+         }
+         if (createdLT != null && createdLT != "") {
+            urlQuery +='created[lt]='+ createdLT+'&';
+         }
+         if (createdLTE != null && createdLTE != "") {
+            urlQuery +='created[lte]='+ createdLTE+'&';
+         }
+         mc.setProperty('uri.var.urlQuery',urlQuery);
+        ]]>
+        </script>
+
+        <filter source="$ctx:STRIPE_BLOCKING" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/charges?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/charges?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

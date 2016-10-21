@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"transactionId":"txn_157W8PDpl35Wu2uiWpeR9QvW"
-}

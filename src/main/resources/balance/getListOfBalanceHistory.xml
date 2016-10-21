@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template name="getListOfBalanceHistory" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="currency" description="A cursor for use in pagination"/>
+    <parameter name="endingBefore" description="A cursor for use in pagination"/>
+    <parameter name="limit" description="A limit on the number of objects to be returned"/>
+    <parameter name="startingAfter" description="A cursor for use in pagination"/>
+    <parameter name="source" description="Only return transactions for the source specified by this source ID."/>
+    <parameter name="transfer"
+               description="Only return transactions that were transferred out  on the specified transfer"/>
+    <parameter name="type" description="Only returns transactions of the given type"/>
+    <parameter name="createdGT" description="Return values where the created field is after this timestamp."/>
+    <parameter name="createdGTE"
+               description="Return values where the created field is after or equal to this timestamp."/>
+    <parameter name="createdLT" description="Return values where the created field is before this timestamp."/>
+    <parameter name="createdLTE"
+               description="Return values where the created field is before or equal to this timestamp."/>
+    <parameter name="availableOnGT" description="Return values where the availableOn field is after this timestamp."/>
+    <parameter name="availableOnGTE"
+               description="Return values where the availableOn field is after or equal to this timestamp."/>
+    <parameter name="availableOnLT" description="Return values where the availableOn field is before this timestamp."/>
+    <parameter name="availableOnLTE"
+               description="Return values where the availableOn field is before or equal to this timestamp."/>
+
+    <sequence>
+        <property name="uri.var.currency" expression="$func:currency"/>
+        <property name="uri.var.endingBefore" expression="$func:endingBefore"/>
+        <property name="uri.var.limit" expression="$func:limit"/>
+        <property name="uri.var.startingAfter" expression="$func:startingAfter"/>
+        <property name="uri.var.source" expression="$func:source"/>
+        <property name="uri.var.transfer" expression="$func:transfer"/>
+        <property name="uri.var.type" expression="$func:type"/>
+        <property name="uri.var.createdGT" expression="$func:createdGT"/>
+        <property name="uri.var.createdGTE" expression="$func:createdGTE"/>
+        <property name="uri.var.createdLT" expression="$func:createdLT"/>
+        <property name="uri.var.createdLTE" expression="$func:createdLTE"/>
+        <property name="uri.var.availableOnGT" expression="$func:availableOnGT"/>
+        <property name="uri.var.availableOnGTE" expression="$func:availableOnGTE"/>
+        <property name="uri.var.availableOnLT" expression="$func:availableOnLT"/>
+        <property name="uri.var.availableOnLTE" expression="$func:availableOnLTE"/>
+
+        <script language="js"><![CDATA[
+
+         var urlQuery = '';
+         //request url param variables
+         var currency = mc.getProperty('uri.var.currency');
+         var limit=mc.getProperty('uri.var.limit');
+         var startingAfter=mc.getProperty('uri.var.startingAfter');
+         var endingBefore=mc.getProperty('uri.var.endingBefore');
+         var source=mc.getProperty('uri.var.source');
+         var transfer=mc.getProperty('uri.var.transfer');
+         var type=mc.getProperty('uri.var.type');
+         var createdGT=mc.getProperty('uri.var.createdGT');
+         var createdGTE=mc.getProperty('uri.var.createdGTE');
+         var createdLT=mc.getProperty('uri.var.createdLT');
+         var createdLTE=mc.getProperty('uri.var.createdLTE');
+         var availableOnGT=mc.getProperty('uri.var.availableOnGT');
+         var availableOnGTE=mc.getProperty('uri.var.availableOnGTE');
+         var availableOnLT=mc.getProperty('uri.var.availableOnLT');
+         var availableOnLTE=mc.getProperty('uri.var.availableOnLTE');
+
+         //Get the existing url
+
+         if (currency != null && currency != "") {
+            urlQuery +='currency='+currency +'&';
+         }
+         if (limit != null && limit != "") {
+            urlQuery +='limit='+ limit +'&';
+         }
+         if (startingAfter != null && startingAfter != "") {
+            urlQuery +='starting_after='+ startingAfter+'&';
+         }
+         if (endingBefore != null && endingBefore != "") {
+            urlQuery +='ending_before='+ endingBefore+'&';
+         }
+         if (source != null && source != "") {
+            urlQuery +='source='+source+'&';
+         }
+         if (transfer != null && transfer != "") {
+            urlQuery +='transfer='+ transfer+'&';
+         }
+         if (type != null && type != "") {
+            urlQuery +='type='+ type+'&';
+         }
+         if (createdGT != null && createdGT != "") {
+            urlQuery +='created[gt]='+ createdGT+'&';
+         }
+         if (createdGTE != null && createdGTE != "") {
+            urlQuery +='created[gte]='+ createdGTE+'&';
+         }
+         if (createdLT != null && createdLT != "") {
+            urlQuery +='created[lt]='+ createdLT+'&';
+         }
+         if (createdLTE != null && createdLTE != "") {
+            urlQuery +='created[lte]='+ createdLTE+'&';
+         }
+         if (availableOnGT != null && availableOnGT != "") {
+            urlQuery +='available_on[gt]='+ availableOnGT+'&';
+         }
+         if (availableOnGTE != null && availableOnGTE != "") {
+            urlQuery +='available_on[gte]='+ availableOnGTE+'&';
+         }
+         if (availableOnLT != null && availableOnLT != "") {
+            urlQuery +='available_on[lt]='+ availableOnLT+'&';
+         }
+         if (availableOnLTE != null && availableOnLTE != "") {
+            urlQuery +='available_on[lte]='+ availableOnLTE+'&';
+         }
+         mc.setProperty('uri.var.urlQuery',urlQuery);
+        ]]>
+        </script>
+
+        <filter source="$ctx:STRIPE_BLOCKING" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/balance/history?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/balance/history?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

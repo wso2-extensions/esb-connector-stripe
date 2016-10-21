@@ -1,5 +1,0 @@
-{
-"apiKey":"%s",
-"card":"tok_15WTZVDpl35Wu2uicIrzVDXs",
-"description":"new custormer"
-}

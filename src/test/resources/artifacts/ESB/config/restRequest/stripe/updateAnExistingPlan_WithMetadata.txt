@@ -1,5 +1,0 @@
-{
-"apiKey":"%s",
-"planId":"gold",
-"metadata":{"firstName":"Siva","lastName":"Sam"}
-}

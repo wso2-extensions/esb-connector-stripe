@@ -1,5 +1,0 @@
-{
-"apiKey":"%s",
-  "cardId":"card_155aieDpl35Wu2uiOqLQHBoK",
-  "customerId":"cus_5G5R2"
-}

@@ -1,5 +1,0 @@
-{
-"apiKey":"%s",
-"customerId":"cus_5IjGVSE57E",
-"plan":"gold"
-}

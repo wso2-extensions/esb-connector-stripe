@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"tokenId":"tok_151DPGD"
-}

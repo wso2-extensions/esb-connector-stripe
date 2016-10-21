@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"chargeId":"ch_157SEVDpl35Wu2u",
-"description":"updated charge",
-"metadata":{"firstName":"Siva","lastName":"Sam"}
-}
