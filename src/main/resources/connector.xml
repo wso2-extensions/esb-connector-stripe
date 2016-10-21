@@ -18,27 +18,16 @@
 -->
 <connector>
     <component name="stripe" package="org.wso2.carbon.connector">
-        <dependency component="stripe_config"/>
-        <dependency component="stripe_charges"/>
-        <dependency component="stripe_cards"/>
-        <dependency component="stripe_tokens"/>
-        <dependency component="stripe_customers"/>
-        <dependency component="stripe_refunds"/>
-        <dependency component="stripe_invoices"/>
-        <dependency component="stripe_transfers"/>
-        <dependency component="stripe_account"/>
-        <dependency component="stripe_balance"/>
-        <dependency component="stripe_recipients"/>
-        <dependency component="stripe_plans"/>
-        <dependency component="stripe_subscriptions"/>
-        <dependency component="stripe_invoiceItems"/>
-        <dependency component="stripe_applicationFees"/>
-        <dependency component="stripe_applicationFeeRefunds"/>
-        <dependency component="stripe_coupons"/>
-        <dependency component="stripe_discounts"/>
-        <dependency component="stripe_disputes"/>
-        <dependency component="stripe_events"/>
-        <dependency component="stripe_fileUploads"/>
-        <description>create and retrieve charges</description>
+        <dependency component="config"/>
+        <dependency component="charges"/>
+        <dependency component="cards"/>
+        <dependency component="tokens"/>
+        <dependency component="customers"/>
+        <dependency component="refunds"/>
+        <dependency component="invoices"/>
+        <dependency component="transfers"/>
+        <dependency component="account"/>
+        <dependency component="balance"/>
+        <description>WSO2 connector library for Stripe</description>
     </component>
 </connector>

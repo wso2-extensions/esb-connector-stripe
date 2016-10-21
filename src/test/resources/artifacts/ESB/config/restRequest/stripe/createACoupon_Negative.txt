@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"amountOff":"25",
-"duration":"oncee",
-"currency":"usd"
-}

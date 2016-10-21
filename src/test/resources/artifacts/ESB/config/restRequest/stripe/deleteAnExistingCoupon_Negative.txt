@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"couponId":"25A"
-}

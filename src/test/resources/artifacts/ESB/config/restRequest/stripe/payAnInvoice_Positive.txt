@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"invoiceId":"in_159vfRDpl35Wu2uiCjYoUQKc"
-}

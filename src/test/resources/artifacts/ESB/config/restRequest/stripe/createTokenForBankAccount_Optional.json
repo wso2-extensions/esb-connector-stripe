@@ -1,0 +1,11 @@
+{
+  "apiUrl": "%s(apiUrl)",
+  "apiVersion": "%s(apiVersion)",
+  "apiKey": "%s(apiKey)",
+  "country": "%s(country)",
+  "routingNumber": "%s(routingNumber)",
+  "accountNumber": "%s(accountNumber)",
+  "currency": "%s(currency)",
+  "accountHolderName": "%s(accountHolderName)",
+  "accountHolderType": "%s(accountHolderType)"
+}

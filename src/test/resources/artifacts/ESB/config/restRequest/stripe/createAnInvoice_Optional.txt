@@ -1,9 +1,0 @@
-{
-"apiKey":"%s",
-"customer":"cus_5i6ZZFc3c5a7cT",
-"description":"for testing",
-"metadata": {"checked":"true","refunded":"partial"},
-"statementDescriptor":"statement descriptor",
-"subscription":"sub_5i6Zl7JpszHsW9",
-"taxPercent":"10.0"
-}

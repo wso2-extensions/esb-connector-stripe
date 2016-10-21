@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"customer":"cus_5I4SIAmg4"
-}

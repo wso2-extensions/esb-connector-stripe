@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"chargeId":"ch_15AEwwDpl35Wu2uiatu3DfTn",
-"amount":"50",
-"metadata":{"checked":"true","refunded":"partial"}
-}

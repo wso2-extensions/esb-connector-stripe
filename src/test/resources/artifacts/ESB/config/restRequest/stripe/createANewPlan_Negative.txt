@@ -1,8 +1,0 @@
-{
-"apiKey":"%s",
-  "interval": "mon",
-  "name": "testing plan",
-  "amount": "2000",
-  "currency": "usd",
-  "planId":"gold"
-}

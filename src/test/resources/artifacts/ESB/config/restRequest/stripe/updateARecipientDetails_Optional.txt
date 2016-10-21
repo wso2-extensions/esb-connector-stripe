@@ -1,7 +1,0 @@
-{
-"apiKey":"%s",
-"recipientId":"rp_158X22Dpl35Wu2uinvA7u3bi",
-"recipientName":"mark james",
-"description":"Updated recipient",
-"email":"abc@gmail.com"
-}

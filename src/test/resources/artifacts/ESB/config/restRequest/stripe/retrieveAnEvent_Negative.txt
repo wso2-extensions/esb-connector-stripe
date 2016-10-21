@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"eventId":"evt_15RyGhDpu0KYl9U"
-}

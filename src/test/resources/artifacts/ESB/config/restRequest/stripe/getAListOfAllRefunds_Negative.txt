@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"chargeId":"ch_157ozWDpl3"
-}

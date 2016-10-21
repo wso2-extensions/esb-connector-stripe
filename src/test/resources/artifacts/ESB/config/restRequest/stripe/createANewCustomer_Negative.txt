@@ -1,4 +1,0 @@
-{
-"apiKey":"%s",
-"card":"tok_155uGNDpl35Wu"
-}

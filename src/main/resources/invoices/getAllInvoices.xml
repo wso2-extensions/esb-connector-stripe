@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 Inc. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+<template name="getAllInvoices" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="customer" description="The identifier of the customer to be retrieved"/>
+    <parameter name="endingBefore" description="A cursor for use in pagination"/>
+    <parameter name="limit" description="A limit on the number of objects to be returned"/>
+    <parameter name="startingAfter" description="A cursor for use in pagination"/>
+    <parameter name="dateGT" description="Return values where the date field is after this timestamp."/>
+    <parameter name="dateGTE" description="Return values where the date field is after or equal to this timestamp."/>
+    <parameter name="dateLT" description="Return values where the date field is before this timestamp."/>
+    <parameter name="dateLTE" description="Return values where the date field is before or equal to this timestamp."/>
+
+    <sequence>
+        <property name="uri.var.customer" expression="$func:customer"/>
+        <property name="uri.var.endingBefore" expression="$func:endingBefore"/>
+        <property name="uri.var.limit" expression="$func:limit"/>
+        <property name="uri.var.startingAfter" expression="$func:startingAfter"/>
+        <property name="uri.var.dateGT" expression="$func:dateGT"/>
+        <property name="uri.var.dateGTE" expression="$func:dateGTE"/>
+        <property name="uri.var.dateLT" expression="$func:dateLT"/>
+        <property name="uri.var.dateLTE" expression="$func:dateLTE"/>
+
+        <script language="js"><![CDATA[
+
+         var urlQuery = '';
+         //request url param variables
+         var customer = mc.getProperty('uri.var.customer');
+         var limit=mc.getProperty('uri.var.limit');
+         var startingAfter=mc.getProperty('uri.var.startingAfter');
+         var endingBefore=mc.getProperty('uri.var.endingBefore');
+         var dateGT=mc.getProperty('uri.var.dateGT');
+         var dateGTE=mc.getProperty('uri.var.dateGTE');
+         var dateLT=mc.getProperty('uri.var.dateLT');
+         var dateLTE=mc.getProperty('uri.var.dateLTE');
+         //Get the existing url
+
+         if (customer != null && customer != "") {
+            urlQuery +='customer='+customer +'&';
+         }
+         if (limit != null && limit != "") {
+            urlQuery +='limit='+ limit +'&';
+         }
+         if (startingAfter != null && startingAfter != "") {
+            urlQuery +='starting_after='+ startingAfter+'&';
+         }
+         if (endingBefore != null && endingBefore != "") {
+            urlQuery +='ending_before='+ endingBefore+'&';
+         }
+         if (dateGT != null && dateGT != "") {
+            urlQuery +='date[gt]='+ dateGT+'&';
+         }
+         if (dateGTE != null && dateGTE != "") {
+            urlQuery +='date[gte]='+ dateGTE+'&';
+         }
+         if (dateLT != null && dateLT != "") {
+            urlQuery +='date[lt]='+ dateLT+'&';
+         }
+         if (dateLTE != null && dateLTE != "") {
+            urlQuery +='date[lte]='+ dateLTE+'&';
+         }
+         mc.setProperty('uri.var.urlQuery',urlQuery);
+        ]]>
+        </script>
+
+        <filter source="$ctx:STRIPE_BLOCKING" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/invoices?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.apiUrl}/{uri.var.apiVersion}/invoices?{+uri.var.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
+    </sequence>
+</template>

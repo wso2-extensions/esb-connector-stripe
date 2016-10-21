@@ -1,6 +1,0 @@
-{
-"apiKey":"%s",
-"country":"USA",
-"routingNumber":"110000000",
-"accountNumber":"000123456789"
-}
