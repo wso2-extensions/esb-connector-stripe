@@ -45,7 +45,7 @@ public class StripeConnectorIntegrationTest extends ConnectorIntegrationTestBase
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("stripe-connector-1.0.1-SNAPSHOT");
+        init("stripe-connector-2.0.1-SNAPSHOT");
 
         apiUrl = connectorProperties.getProperty("apiUrl");
         invalidId = connectorProperties.getProperty("invalidId");
