@@ -4,7 +4,7 @@
     "category": "Billing and Accounting",
     "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/Stripe+Connector",
     "description": "The Stripe connector allows you to access the Stripe REST API through WSO2 ESB. Stripe provides payment processing services for individuals and businesses that help them to handle secure money transfers through online or mobile apps in a convenient way. With Stripe user can create exactly the payment experience that they want on their website or mobile app, and Stripe handle everything from security to transfer to the bank account.\n",
-    "status": "Unsupported",
+    "status": "Active",
     "labels": [
         "connector"
     ],
